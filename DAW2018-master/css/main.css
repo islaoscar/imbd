@@ -1,8 +1,68 @@
 *{
     margin: 0;
-    padding: 0;
-    
+    padding: 0; 
 }
 body{
-    background: lightgray;
+    background-color: lightgray;
+}
+
+/*Estilos bloque ficha peliculas*/
+.fichas, .ficha{
+    border: 1px groove black;
+    background-color: rgba(20,23,23,0.7);
+}
+.fichas{
+    margin: 10px auto;
+}
+.ficha:hover{
+    transform:scale(1.1);
+    transition:all 200ms ease-in-out;
+    border-color: #121C14;
+}
+.ficha h5, .ficha h4{
+    color:#DADCDC;
+}
+/*Navbar*/
+#dropdown-pelis{
+    cursor: pointer;
+}
+*{
+    margin: 0;
+    padding: 0; 
+}
+body{
+    background-color: lightgray;
+}
+
+/*Carrusel*/
+
+/*Estilos bloque ficha peliculas*/
+.fichas, .ficha{
+    border: 1px groove black;
+    background-color: rgba(20,23,23,0.7);
+}
+.fichas{
+    margin: 10px auto;
+    width: 100% !important;
+}
+.ficha:hover{
+    transform:scale(1.1);
+    transition:all 200ms ease-in-out;
+    border-color: #121C14;
+}
+.img-fluid{
+    margin:0 auto !important;
+    display: flex;
+    justify-content: center;
+}
+.ficha h5, .ficha h4{
+    color:#DADCDC;
+}
+/*Navbar*/
+#dropdown-pelis{
+    cursor: pointer;
+}
+/*Filtro texto*/
+.filtroTexto{
+    list-style-type: none;
 }

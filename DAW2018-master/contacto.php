@@ -7,15 +7,14 @@
 <body>
 	<?php 
 	require_once("includes/header.php");
-	?>
+    ?>
     <ul class="breadcrumb">
       <li><a href="index.php">Inicio</a></li>
       <li>Contactar</li>
     </ul>
    <div class="container" id="contacto">
-     <div class="infoEmail">
       <h3><i class="fa fa-envelope-o"></i> Contacto:</h3>
-       <form action="" method="post" class="form-horizontal" onsubmit="return checkSubmit();">
+       <form action="php/procesar.php?accion=mail" method="post" class="form-horizontal" onsubmit="return checkSubmit();">
            <div class="form-group">
               <label class="control-label col-sm-2" for="nombre">Nombre:</label>
               <div class="col-sm-5">
@@ -43,12 +42,10 @@
             <div class="form-group">        
               <div class="col-sm-offset-2 col-sm-12">
                     <button type="submit" class="btn btn-secondary" id="enviarMensaje">Enviar Mensaje</button>
-                    <button type="submit" class="btn btn-primary" id="enviarMensaje">Inicio</button>
+                    <a href="index.php" class="btn btn-primary" id="enviarMensaje">Inicio</a>
               </div>
-                
             </div>
        </form>
-       </div>
    </div>
 </body>
 </html>

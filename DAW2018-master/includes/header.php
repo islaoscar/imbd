@@ -19,7 +19,7 @@
         <li class="active"><a href="index.php">Inicio</a></li>
           <!-- Lista desplegable de las zonas -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">Películas <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" id="dropdown-pelis">Películas <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <li><a href="#">En el aire</a></li>
               <li><a href="#">Próximos extremos</a></li>
@@ -28,7 +28,7 @@
         </li>
           <!-- Lista desplegable del menu con los sectores de la zona seleccionada -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">Eventos y noticias <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" id="dropdown-pelis">Eventos y noticias <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <li><a href="#">Noticias de cine</a></li>
               <li><a href="#">Noticias de TV</a></li>
