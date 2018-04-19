@@ -3,10 +3,7 @@ require_once ("BD.class.php");
 session_start();
 $accion = $_GET['accion'];
 
-if ($accion == 'mail'){
-    $_SESSION["mensaje"]=1;
-    header("Location: ../index.php");
-}else if($accion == 'fichaPelis'){
+if($accion == 'fichaPelis'){
     if(isset($_POST["actualizar"])){
         $puntuacion=$_POST["puntuacion"];
         $age=$_POST["age"];
@@ -107,5 +104,50 @@ if ($accion == 'mail'){
 			}
 			echo "</ul>";
 		}
+}else if($accion=="mail"){
+    
+    require 'class.phpmailer.php';
+    require 'class.smtp.php';
+    $nombre=$_POST["nombre"];
+    $email=$_POST["email"];
+    $mensaje=$_POST["mensaje"];
+    $asunto=$_POST["asunto"];
+    
+    $email_user = "correoelectronicogugel@gmail.com";
+    $email_password = "legugocinortceleoerroc";
+    $the_subject = $asunto;
+    $address_to = "correoelectronicogugel@gmail.com";
+    $from_name = "IMBd";
+    $phpmailer = new PHPMailer();
+    // ---------- datos de la cuenta de Gmail -------------------------------
+    $phpmailer->Username = $email_user;
+    $phpmailer->Password = $email_password; 
+    //-----------------------------------------------------------------------
+    $phpmailer->SMTPDebug = 0;
+    $phpmailer->SMTPSecure = 'ssl';
+    $phpmailer->Host = "smtp.gmail.com"; // GMail
+    $phpmailer->Port = 465;
+    $phpmailer->isSMTP(); // use SMTP
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->setFrom($phpmailer->Username,$from_name);
+    $phpmailer->AddAddress($address_to); // recipients email
+    $phpmailer->Subject = $the_subject;	
+    date_default_timezone_set('Europe/Madrid');
+    $phpmailer->Body .="<h4>Correo: '$email'</h4>";
+    $phpmailer->Body .="<h4>Nombre: '$nombre'</h4>";
+    $phpmailer->Body .="<h2 style='color:#3498db;'>Hola!</h2>";
+    $phpmailer->Body .= "<p>$mensaje</p>"; 
+    $phpmailer->Body .= "<p>Fecha y Hora: ".date("d-m-Y h:i:s")."</p>";
+    $phpmailer->IsHTML(true);
+    $enviar=$phpmailer->send();
+  
+    if(!$enviar) {
+        echo "Error al enviar: ".$phpmailer->ErrorInfo;
+        
+        header ("Location: ../index.php");
+    }else{
+        header ("Location: ../index.php");
+        $_SESSION["mensaje"]=1; 
+    }
 }
 ?>    
